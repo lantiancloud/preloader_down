@@ -15,7 +15,7 @@ blue='\e[34m'
 reset='\e[0m'
 # 输出标记
 log_info="${turquoise}INFO${reset} [preloader_down]"
-log_warn="${yellow}WARN${reset} [preloaderdown]"
+log_warn="${yellow}WARN${reset} [preloader_down]"
 log_error="${red}ERROR${reset} [preloader_down]"
 # 构建显示时间函数
 update_time() {
