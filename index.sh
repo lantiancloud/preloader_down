@@ -21,9 +21,12 @@ log_error="${red}ERROR${reset} [preloader_down]"
 update_time() {
   current_time="${light_blue}"$(date "+%T.%3N")"${reset}"
 }
+# 构建下载链接更新函数
+update_url() {
+  download_url="${git_proxy}/${git_url}/${git_repo}/releases/download/${version}/${git_assets}"
+}
 
 # 检索版本列表
-version_input_check="$(cat versions.txt)"
 version_list="$(curl -s https://git.lantian.pro/ltcontainer/preloader_down/raw/master/version_list/versions.txt)"
 update_time
 echo -e "${current_time} ${log_info} 正在开始下载PreLoader"
@@ -45,6 +48,7 @@ if [ -z "${input}" ]; then
   version="${latest_version}"
   update_time
   echo -e "${current_time} ${log_info} 开始下载PreLoader ${version}"
+  update_url
   pget "${download_url}"
   update_time
   echo -e "${current_time} ${log_info} 下载完成"
@@ -56,6 +60,7 @@ if echo "${version_list}" | grep -q "${input}"; then
   version=${input}
   update_time
   echo -e "${current_time} ${log_info} 开始下载PreLoader ${version}"
+  update_url
   pget "${download_url}"
   update_time
   echo -e "${current_time} ${log_info} 下载完成"
