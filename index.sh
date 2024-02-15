@@ -24,7 +24,7 @@ update_time() {
 
 # 检索版本列表
 version_input_check="$(cat versions.txt)"
-version_list="$(curl -s https://git.lantian.pro/ltcontainer/peeditor_down/raw/master/version_list/versions.txt)"
+version_list="$(curl -s https://git.lantian.pro/ltcontainer/preloader_down/raw/master/version_list/versions.txt)"
 update_time
 echo -e "${current_time} ${log_info} 正在开始下载PreLoader"
 update_time
